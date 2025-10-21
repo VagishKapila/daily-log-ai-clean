@@ -1,7 +1,7 @@
 services:
   - type: web
     name: daily-log-ai
-    env: python  # ✅ this enables runtime.txt support
+    env: python  # this must be set
     plan: free
     buildCommand: ./render/build.sh
     startCommand: gunicorn app:app
