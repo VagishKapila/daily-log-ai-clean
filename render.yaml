@@ -1,10 +1,7 @@
 services:
   - type: web
     name: daily-log-ai
-    env: python  # this must be set
+    env: python
     plan: free
     buildCommand: ./render/build.sh
     startCommand: gunicorn app:app
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.10.13
