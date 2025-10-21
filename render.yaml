@@ -3,7 +3,13 @@ services:
     name: daily-log-ai
     env: python
     plan: free
-    buildCommand: ./render/build.sh
+    buildCommand: |
+      echo "🔧 Forcing Python version"
+      pyenv install 3.10.13 --skip-existing
+      pyenv global 3.10.13
+      python -V
+      pip install --upgrade pip setuptools wheel
+      pip install --only-binary=:all: -r requirements.txt
     startCommand: gunicorn app:app
     envVars:
       - key: PYTHON_VERSION
