@@ -1,7 +1,5 @@
 services:
   - type: web
     name: daily-log-ai
-    env: python
     plan: free
-    buildCommand: ./render/build.sh
-    startCommand: gunicorn app:app
+    dockerfilePath: ./Dockerfile
