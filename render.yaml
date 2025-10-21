@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: daily-log-ai
+    env: python
+    runtime: python-3.10.13
+    buildCommand: ./render/build.sh
+    startCommand: gunicorn app:app
